@@ -99,19 +99,7 @@ You can manually test the UakinoClub functionality by:
 
 ## Expected Response Formats
 
-### Similar Titles Response
-```json
-{
-  "similars": [
-    {
-      "title": "Movie Title",
-      "href": "https://uakino.club/movie-link"
-    }
-  ]
-}
-```
-
-### Movie/Video Response
+### Test 1: Exact Match Response (Black Mirror 2011)
 ```json
 {
   "movie": {
@@ -121,12 +109,69 @@ You can manually test the UakinoClub functionality by:
       "folder": [
         {
           "title": "Оригинал",
-          "file": "video-stream-url"
+          "file": "http://localhost:9118/lite/uakinoclub/video?link=https%3A%2F%2Fuakino.club%2Fvideo%2Fblack-mirror-2011.m3u8"
         }
       ]
     }
   }
 }
+```
+
+### Test 2: Similar Results Response (Black Mirror 2019)
+```json
+{
+  "similars": [
+    {
+      "title": "Black Mirror",
+      "href": "https://uakino.club/films/black-mirror-2011"
+    },
+    {
+      "title": "Black Mirror: Bandersnatch",
+      "href": "https://uakino.club/films/black-mirror-bandersnatch-2018"
+    },
+    {
+      "title": "Black Mirror: USS Callister",
+      "href": "https://uakino.club/films/black-mirror-uss-callister-2017"
+    }
+  ]
+}
+```
+
+### Test 3: Clarification Response (clarification=1)
+```json
+{
+  "similars": [
+    {
+      "title": "Black Mirror",
+      "href": "https://uakino.club/films/black-mirror-2011"
+    },
+    {
+      "title": "Black Mirror: Bandersnatch",
+      "href": "https://uakino.club/films/black-mirror-bandersnatch-2018"
+    },
+    {
+      "title": "Black Mirror: USS Callister",
+      "href": "https://uakino.club/films/black-mirror-uss-callister-2017"
+    },
+    {
+      "title": "Black Mirror: San Junipero",
+      "href": "https://uakino.club/films/black-mirror-san-junipero-2016"
+    }
+  ]
+}
+```
+
+### Test 4: No Results Response
+```json
+{
+  "error": "No results found"
+}
+```
+
+### Test 5: Video Endpoint Response
+The video endpoint (`/lite/uakinoclub/video`) doesn't return JSON but instead performs an HTTP 302 redirect to the actual video stream through Lampac's proxy system:
+```
+HTTP 302 Redirect to: http://localhost:9118/stream/proxy/[encoded-video-url]
 ```
 
 ## Test Results Summary
