@@ -880,6 +880,7 @@ namespace Lampac.Controllers
                 send(conf.Kinoukr, "kinoukr", "Kinoukr (Украинский)", rch_access: "apk,cors");
 
             send(conf.Eneyida, "eneyida", "Eneyida (Украинский)", rch_access: "apk,cors");
+            send(conf.UakinoClub, "uakinoclub", "UakinoClub (Украинский)", rch_access: "apk,cors");
 
             #region Collaps
             {

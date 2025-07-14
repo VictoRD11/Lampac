@@ -672,6 +672,8 @@ namespace Lampac
 
         public OnlinesSettings Eneyida { get; set; } = new OnlinesSettings("Eneyida", "kwwsv=22hqh|lgd1wy");
 
+        public OnlinesSettings UakinoClub { get; set; } = new OnlinesSettings("UakinoClub", "kwwsv=22xdnlqr1foxe") { geo_hide = new string[] { "RU", "BY" } };
+
         public OnlinesSettings Kinotochka { get; set; } = new OnlinesSettings("Kinotochka", "kwwsv=22nlqryleh1yls", streamproxy: true);
 
         public OnlinesSettings RutubeMovie { get; set; } = new OnlinesSettings("RutubeMovie", "kwwsv=22uxwxeh1ux", streamproxy: true)
